@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Made by Charloux https://github.com/GlitchedChar <3 -->
+    <!-- STOP STALKING MY CODE!!! -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Charloux</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Audiowide&family=Lato:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Lato', sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      background-color: #1b1c1d;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 100vh;
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      filter: brightness(80%);
+    }
+
+    h1 {
+      margin-top: 20px;
+      font-size: 3.75em;
+      color: #fff;
+      font-family: 'Audiowide', cursive;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      animation: fadeInGrow 2s forwards;
+      position: relative;
+      overflow: hidden;
+    }
+
+    h1:hover:before, h1:hover:after {
+      position: absolute;
+      content: 'Charloux';
+      transform: translate(-50%, -50%);
+      z-index: -1;
+    }
+
+    h1:hover:before {
+      top: 49.5%;
+      left: 49.5%;
+      color: rgba(233, 30, 99, 0.8);
+      animation: distort1 300ms linear infinite;
+    }
+
+    h1:hover:after {
+      top: 50.5%;
+      left: 50.5%;
+      color: rgba(3, 169, 244, 0.8);
+      animation: distort2 300ms linear infinite;
+    }
+
+    @keyframes distort1 {
+      0%    { top: 49.5%; left: 49.5%; }
+      12.5% { top: 49.5%; left: 50%; }
+      25%   { top: 49.5%; left: 50.5%; }
+      37.5% { top: 50%; left: 50.5%; }
+      50%   { top: 50.5%; left: 50.5%; }
+      62.5% { top: 50.5%; left: 50%; }
+      75%   { top: 50.5%; left: 49.5%; }
+      87.5% { top: 50%; left: 49.5%; }
+      100%  { top: 49.5%; left: 49.5%; }
+    }
+
+    @keyframes distort2 {
+      0%    { top: 50.5%; left: 50.5%; }
+      12.5% { top: 50%; left: 50.5%; }
+      25%   { top: 49.5%; left: 50.5%; }
+      37.5% { top: 49.5%; left: 50%; }
+      50%   { top: 49.5%; left: 49.5%; }
+      62.5% { top: 50%; left: 49.5%; }
+      75%   { top: 50.5%; left: 49.5%; }
+      87.5% { top: 50.5%; left: 50%; }
+      100%  { top: 50.5%; left: 50.5%; }
+    }
+
+    .top-icon {
+      position: fixed;
+      top: 25px;
+      left: -50px;
+      width: 71.875px; /* 15% bigger than 62.5px */
+      height: 71.875px;
+      background: url('assets/top-image.png') no-repeat center center;
+      background-size: cover;
+      border-radius: 50%;
+      z-index: 1;
+      opacity: 0;
+      animation: fadeInSlide 2s forwards;
+    }
+
+    .btn-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .btn {
+      font-family: 'Lato', sans-serif;
+      position: relative;
+      margin: 10px;
+      width: 320px;
+      height: 60px;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      text-align: center;
+      overflow: hidden;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 20px;
+      transition: transform 0.3s, color 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none; /* Remove default link underline */
+    }
+
+    .btn i {
+      margin-right: 15px;
+      font-size: 1.875em;
+    }
+
+    .btn span {
+      flex-grow: 1;
+    }
+
+    .btn.instagram {
+      background: linear-gradient(to bottom right, #ffd700, #ff5733);
+    }
+
+    .btn.tiktok {
+      background: linear-gradient(to bottom right, #000, #4b0082);
+    }
+
+    .btn.youtube {
+      background-color: #ff0000;
+    }
+
+    .btn.email {
+      background-color: #2196f3;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      color: #fff;
+    }
+
+    .btn.spotify { background-color: #1db954; }
+    .btn.apple { background-color: #ff2f2f; }
+    .btn.soundcloud { background-color: #ff5500; }
+    .btn.bandcamp { background-color: #629aa9; }
+
+    @keyframes fadeInSlide {
+      to {
+        opacity: 1;
+        left: 25px;
+      }
+    }
+
+    @keyframes fadeInGrow {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Footer Styles */
+    footer {
+      padding: 8px;
+      text-align: center;
+      background-color: #333;
+      color: #fff;
+      font-size: 80%;
+    }
+
+    .footer-icon {
+      margin-left: 5px;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <video autoplay muted loop>
+    <source src="assets/your-background-video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="top-icon"></div>
+
+  <h1>Charloux</h1>
+
+  <div class="btn-container">
+    <a href="https://open.spotify.com/artist/0Oxzki1eP9iAWyB43BPCgb?si=12797293f2aa4621" class="btn spotify">
+      <i class="fab fa-spotify"></i><span>Spotify</span>
+    </a>
+
+    <a href="https://music.apple.com/us/artist/charloux/1676999578" class="btn apple">
+      <i class="fab fa-apple"></i><span>Apple Music</span>
+    </a>
+
+    <a href="https://www.instagram.com/charl0ux" class="btn instagram">
+      <i class="fab fa-instagram"></i><span>Instagram</span>
+    </a>
+
+    <a href="https://www.tiktok.com/@charl0ux" class="btn tiktok">
+      <i class="fab fa-tiktok"></i><span>Tik Tok</span>
+    </a>
+
+    <a href="https://www.youtube.com/@charlouxmusic" class="btn youtube">
+      <i class="fab fa-youtube"></i><span>YouTube</span>
+    </a>
+
+    <a href="https://soundcloud.com/charl0ux" class="btn soundcloud">
+      <i class="fab fa-soundcloud"></i><span>Soundcloud</span>
+    </a>
+
+    <a href="https://charloux.bandcamp.com/" class="btn bandcamp">
+      <i class="fab fa-bandcamp"></i><span>Bandcamp</span>
+    </a>
+
+    <a href="mailto:charlouxmusic@gmail.com" class="btn email">
+      <i class="fas fa-envelope"></i><span>Email/Booking Contact</span>
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    Made by Charloux <3 <a href="https://www.instagram.com/charl0ux/" target="_blank" class="footer-icon"><i class="fab fa-instagram"></i></a>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
